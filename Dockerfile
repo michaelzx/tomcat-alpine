@@ -29,10 +29,13 @@ ENV TOMCAT_ASC_URL https://www.apache.org/dist/tomcat/tomcat-$TOMCAT_MAJOR/v$TOM
 
 RUN set -x \
 	\
+	&& echo -e "https://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/main\nhttps://mirror.tuna.tsinghua.edu.cn/alpine/v3.4/community/">/etc/apk/repositories \
 	&& apk add --no-cache --virtual .fetch-deps \
 		ca-certificates \
 		tar \
+		tar \
 		openssl \
+		ttf-dejavu \
 	&& wget -O tomcat.tar.gz "$TOMCAT_TGZ_URL" \
 	&& wget -O tomcat.tar.gz.asc "$TOMCAT_ASC_URL" \
 	&& gpg --batch --verify tomcat.tar.gz.asc tomcat.tar.gz \
