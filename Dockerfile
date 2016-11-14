@@ -33,7 +33,6 @@ RUN set -x \
 	&& apk add --no-cache --virtual .fetch-deps \
 		ca-certificates \
 		tar \
-		tar \
 		openssl \
 		ttf-dejavu \
 	&& wget -O tomcat.tar.gz "$TOMCAT_TGZ_URL" \
